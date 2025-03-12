@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastDev - Login/Cadastro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .auth-container {
+            background-color: #222;
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #E0E0E0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo span {
+            color: #D32F2F;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 18px;
+            color: #B0BEC5;
+            cursor: pointer;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab.active {
+            color: #D32F2F;
+            border-bottom: 2px solid #D32F2F;
+        }
+
+        .tab:hover {
+            color: #E0E0E0;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #B0BEC5;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #E0E0E0;
+            font-size: 16px;
+            outline: none;
+            transition: background 0.3s;
+        }
+
+        .form-group input:focus {
+            background-color: #444;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            background: #D32F2F;
+            color: #E0E0E0;
+            padding: 12px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: #B0BEC5;
+            color: #121212;
+            transform: translateY(-2px);
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .forgot-password a {
+            color: #B0BEC5;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .forgot-password a:hover {
+            color: #D32F2F;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+            color: #B0BEC5;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="logo">FAST<span>D</span>EV</div>
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('login')">Login</div>
+            <div class="tab" onclick="switchTab('register')">Cadastro</div>
+        </div>
+
+        <div id="login" class="form-container active">
+            <form>
+                <div class="form-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" placeholder="Digite seu e-mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" placeholder="Digite sua senha" required>
+                </div>
+                <button type="submit" class="btn">Entrar</button>
+                <div class="forgot-password">
+                    <a href="#">Esqueceu sua senha?</a>
+                </div>
+            </form>
+        </div>
+
+        <div id="register" class="form-container">
+            <form>
+                <div class="form-group">
+                    <label for="register-name">Nome</label>
+                    <input type="text" id="register-name" placeholder="Digite seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">E-mail</label>
+                    <input type="email" id="register-email" placeholder="Digite seu e-mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Senha</label>
+                    <input type="password" id="register-password" placeholder="Crie uma senha" required>
+                </div>
+                <button type="submit" class="btn">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>FastDev © 2025 - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        function switchTab(tab) {
+            const loginTab = document.getElementById('login');
+            const registerTab = document.getElementById('register');
+            const tabs = document.querySelectorAll('.tab');
+
+            if (tab === 'login') {
+                loginTab.classList.add('active');
+                registerTab.classList.remove('active');
+                tabs[0].classList.add('active');
+                tabs[1].classList.remove('active');
+            } else {
+                registerTab.classList.add('active');
+                loginTab.classList.remove('active');
+                tabs[1].classList.add('active');
+                tabs[0].classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

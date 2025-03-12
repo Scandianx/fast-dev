@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastDev - Cursos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222;
+            padding: 15px 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #E0E0E0;
+        }
+
+        .logo span {
+            color: #D32F2F;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #E0E0E0;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #D32F2F;
+        }
+
+        .banner {
+            background: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            max-width: 600px;
+        }
+
+        .banner h1 {
+            font-size: 40px;
+            color: #E0E0E0;
+            margin-bottom: 20px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin: 15px 0;
+            color: #B0BEC5;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #D32F2F;
+            color: #E0E0E0;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: #B0BEC5;
+            color: #121212;
+            transform: translateY(-2px);
+        }
+
+        .course-section {
+            padding: 40px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .course-section h2 {
+            color: #B0BEC5;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .course-carousel {
+            display: flex;
+            gap: 20px;
+            padding: 15px 20px;
+            animation: infiniteScroll 30s linear infinite; /* Animação infinita */
+        }
+
+        @keyframes infiniteScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Move até metade, pois duplicamos os itens */
+        }
+
+        .course-carousel:hover {
+            animation-play-state: paused; /* Pausa ao passar o mouse */
+        }
+
+        .course-card {
+            flex: 0 0 280px;
+            background-color: #222;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 3px solid #D32F2F;
+        }
+
+        .course-card h3 {
+            margin: 15px 10px;
+            font-size: 20px;
+            color: #E0E0E0;
+        }
+
+        .course-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #B0BEC5;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">FAST<span>D</span>EV</div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Meus Cursos</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Aprenda com os Melhores</h1>
+            <p>Domine tecnologias de ponta com cursos práticos e atualizados.</p>
+            <a href="#" class="btn">Explorar Cursos</a>
+        </div>
+    </section>
+
+    <section class="course-section">
+        <h2>📚 Cursos Populares</h2>
+        <div class="carousel-wrapper">
+            <div class="course-carousel">
+                <!-- Itens originais -->
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Python">
+                    <h3>Python para Iniciantes</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="JavaScript">
+                    <h3>JavaScript Avançado</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="React">
+                    <h3>React do Zero</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Cybersecurity">
+                    <h3>Segurança Cibernética</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Node.js">
+                    <h3>Node.js Essencial</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="CSS">
+                    <h3>CSS Moderno</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="SQL">
+                    <h3>Bancos de Dados com SQL</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="DevOps">
+                    <h3>Fundamentos de DevOps</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="HTML">
+                    <h3>HTML5 Completo</h3>
+                </div>
+                <!-- Itens duplicados para o loop infinito -->
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Python">
+                    <h3>Python para Iniciantes</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="JavaScript">
+                    <h3>JavaScript Avançado</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="React">
+                    <h3>React do Zero</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Cybersecurity">
+                    <h3>Segurança Cibernética</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Node.js">
+                    <h3>Node.js Essencial</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="CSS">
+                    <h3>CSS Moderno</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="SQL">
+                    <h3>Bancos de Dados com SQL</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="DevOps">
+                    <h3>Fundamentos de DevOps</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="HTML">
+                    <h3>HTML5 Completo</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="course-section">
+        <h2>📚 Cursos em Alta</h2>
+        <div class="carousel-wrapper">
+            <div class="course-carousel">
+                <!-- Itens originais -->
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="AI">
+                    <h3>Inteligência Artificial</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="ML">
+                    <h3>Machine Learning</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Cloud">
+                    <h3>Cloud Computing</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Git">
+                    <h3>Git e GitHub</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="TypeScript">
+                    <h3>TypeScript Avançado</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="UI">
+                    <h3>Design de UI/UX</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Docker">
+                    <h3>Docker para Devs</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Agile">
+                    <h3>Metodologias Ágeis</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Blockchain">
+                    <h3>Blockchain Basics</h3>
+                </div>
+                <!-- Itens duplicados para o loop infinito -->
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="AI">
+                    <h3>Inteligência Artificial</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="ML">
+                    <h3>Machine Learning</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Cloud">
+                    <h3>Cloud Computing</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Git">
+                    <h3>Git e GitHub</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="TypeScript">
+                    <h3>TypeScript Avançado</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="UI">
+                    <h3>Design de UI/UX</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Docker">
+                    <h3>Docker para Devs</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Agile">
+                    <h3>Metodologias Ágeis</h3>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=300&auto=format&fit=crop" alt="Blockchain">
+                    <h3>Blockchain Basics</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>FastDev © 2025 - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>

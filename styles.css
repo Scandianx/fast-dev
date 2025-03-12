@@ -1,0 +1,136 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFC107;
+}
+
+.logo span {
+    color: #D32F2F;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #FFC107;
+}
+
+/* Banner principal */
+.banner {
+    background: url('https://source.unsplash.com/1600x600/?coding') center/cover no-repeat;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.banner-content {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.banner h1 {
+    font-size: 36px;
+    color: #FFC107;
+}
+
+.banner p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.btn {
+    display: inline-block;
+    background: #D32F2F;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #FFC107;
+    color: black;
+}
+
+/* Seção de cursos */
+.course-section {
+    padding: 20px 30px;
+}
+
+.course-section h2 {
+    color: #FFC107;
+    margin-bottom: 10px;
+}
+
+/* Carrossel de cursos */
+.course-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.course-card {
+    flex: 0 0 auto;
+    width: 300px;
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.course-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #222;
+    margin-top: 20px;
+}
