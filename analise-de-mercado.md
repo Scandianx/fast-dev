@@ -42,7 +42,7 @@ A pesquisa identificou diversas plataformas de cursos online que possuem similar
 ### **4.2.1 Udemy**
 - **Descrição**: Plataforma global de ensino com modelo baseado na compra de cursos individuais.
 - **Pontos Positivos**:
-  - Grande variedade de cursos, cobrindo diversas áreas.
+     - Grande variedade de cursos, cobrindo diversas áreas.
   - Acesso vitalício ao conteúdo adquirido.
   - Certificados de conclusão disponíveis.
   - Sistema de avaliações e feedbacks.
